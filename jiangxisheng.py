@@ -81,8 +81,8 @@ for key_class in Page:
         else:
             print("[WebDriver]: 切换关键词")
             break
+
 print("[WebDriver]: 退出浏览器")
 driver.quit()
+print("[WebDriver]: 成功退出浏览器")
 print("[log]: 程序结束")
-
-print("完成")
