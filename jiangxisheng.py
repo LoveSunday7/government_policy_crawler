@@ -84,3 +84,5 @@ for key_class in Page:
 print("[WebDriver]: 退出浏览器")
 driver.quit()
 print("[log]: 程序结束")
+
+print("完成")
