@@ -30,11 +30,17 @@ class Information:
         print(f"[file]: 正在写入文件：{self.file_path}")
         try:
             with open(self.file_path, 'w', encoding='utf-8') as f:
+                f.write("="*20+'\n')
                 f.write(f"标题：{self.title}\n")
+                f.write("="*20+'\n')
                 f.write(f"发布时间：{self.time}\n")
+                f.write("="*20+'\n')
                 f.write(f"来源：{self.publisher}\n")
+                f.write("="*20+'\n')
                 f.write(f"正文：\n{self.content}\n")
+                f.write("="*20+'\n')
                 f.write(f"附件：\n")
+                f.write("="*20+'\n')
                 count = 1
                 for key in self.attachment_links:
                     f.write(f"{count}:{self.attachment_links[key]}\n")
