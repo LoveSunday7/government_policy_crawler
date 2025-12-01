@@ -138,9 +138,9 @@ def MakeDriver():
     # 打开浏览器
     print("[WebDriver]: 初始化浏览器")
     options = webdriver.FirefoxOptions()
-    options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--no-sandbox')
+    # options.add_argument('--headless')
+    # options.add_argument('--disable-gpu')
+    # options.add_argument('--no-sandbox')
     driver = webdriver.Firefox(options=options)
     driver.set_page_load_timeout(30)
     print("[WebDdriver]: 初始化浏览器成功")

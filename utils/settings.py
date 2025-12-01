@@ -1,9 +1,9 @@
 GOV_LINKS = {
     "江西省农业农村厅":"http://nync.jiangxi.gov.cn/search5/html/searchResult.html?siteCode=3600000029&searchWord=%25E5%2586%259C%25E4%25B8%259A&column=%25E5%2585%25A8%25E9%2583%25A8&left_right_index=0&searchSource=1",
-    "南昌市农业农村局":"https://nyj.nc.gov.cn/",
-    "景德镇市农业农村局":"https://nyncj.jdz.gov.cn/",
+    "南昌市农业农村局":"https://nyj.nc.gov.cn/so/s?qt=",
+    "景德镇市农业农村局":"https://nyncj.jdz.gov.cn/site/search/#/all?type=%E6%89%80%E6%9C%89&siteId=14&name=%E6%99%AF%E5%BE%B7%E9%95%87%E5%B8%82%E5%86%9C%E4%B8%9A%E5%86%9C%E6%9D%91%E5%B1%80&wcmSiteId=31&searchWord=",
     "萍乡市农业农村局":"https://nyncj.pingxiang.gov.cn/",
-    "九江市农业农村局":"https://nyncj.jiujiang.gov.cn/",
+    "九江市农业农村局":"https://zmhd.jiujiang.gov.cn/irs-c-web/?code=183f883089d&codes=&configCode=&dataTypeId=3&sign=fbc3ab76-d4df-4e3e-baa4-577187d45047&searchWord=",
     "新余市农业农村局":"https://nyj.xinyu.gov.cn/",
     "鹰潭市农业农村粮食局":"http://nynclsj.yingtan.gov.cn/",
     "赣州市农村农业网":"https://ny.ganzhou.gov.cn/",

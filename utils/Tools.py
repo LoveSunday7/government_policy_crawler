@@ -99,13 +99,22 @@ def search_keywords(SearchBox:WebElement):
                         SearchBox.clear()
                         if SearchBox.get_attribute('value') == '':
                             break
-                    except:
-                        print("[search]: 清除搜索框失败，睡眠1s重新清除")
-                        break
+                    except Exception as e:
+                        print(f"[search]: 清除搜索框失败，原因{e}，睡眠1s重新清除")
                 
                 # 输入关键字并回车搜索
                 SearchBox.send_keys(key3) # key3
                 SearchBox.send_keys(Keys.ENTER)
+                # 返回关键词目录
+                print(f"[search]: 搜索关键字：{key1}->{key2}->{key3} 成功")
+                yield f"./农业分类目录/{key1}/{key2}/{key3}"
+
+def search_keywords_by_url(driver:WebDriver,url:str):
+    for key1 in KEY_MAP:
+        for key2 in KEY_MAP[key1]:
+            for key3 in KEY_MAP[key1][key2]:
+                # 在当前页面打开url
+                driver.get(url+ key3)
                 # 返回关键词目录
                 print(f"[search]: 搜索关键字：{key1}->{key2}->{key3} 成功")
                 yield f"./农业分类目录/{key1}/{key2}/{key3}"
