@@ -12,7 +12,7 @@ SearchBox = driver.find_element(By.XPATH, "//*[@id=\"allSearchWord\"]")
 Page = search_keywords(SearchBox) # 返回迭代器
 
 for key_class in Page:
-    count = check_ok(driver)
+    count = check_ok(driver,"/html/body/div[2]/div[2]/div[3]/div[1]/div[1]/p/span")
     parse_count = 0
 
     if count == 0:
