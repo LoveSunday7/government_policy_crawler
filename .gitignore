@@ -1,2 +1,6 @@
 # 不处理 农业分类目录上的内容
 农业分类目录/
+testpython.py
+test/
+
+utils/__pycache__/

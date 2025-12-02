@@ -77,7 +77,7 @@ for key_class in Page:
                 except:
                     print("[WebDriver]: 点击下一页失败，等待1s后重试")
                     sleep(1)
-            count = check_ok(driver)
+            count = check_ok(driver,"/html/body/div[2]/div[2]/div[3]/div[1]/div[1]/p/span")
         else:
             print("[WebDriver]: 切换关键词")
             break
