@@ -72,12 +72,12 @@ class Information:
 
         print(f"[file]: 下载附件结束")
 
-def check_ok(driver:WebDriver):
+def check_ok(driver:WebDriver,xpath:str):
     print("[driver]: 等待页面加载",end="",flush=True)
     while True:
         try:
             print("\r[driver]: 等待页面加载...",end="",flush=True)
-            count = driver.find_element(By.XPATH, "/html/body/div[2]/div[2]/div[3]/div[1]/div[1]/p/span").text
+            count = driver.find_element(By.XPATH, xpath).text
             print(f"\r[driver]: 页面加载完成，共有{count}条搜索结果")
             return int(count)
         except:
