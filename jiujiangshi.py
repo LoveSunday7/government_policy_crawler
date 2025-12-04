@@ -61,21 +61,28 @@ for key_class in Page :
                 f.write(respose.content)
 
 
-        
 
-
-
-
+        # 换页操作代码
+        # 检查是否为最后一页
+        try:
+            lab_count = len(driver.find_elements(By.XPATH,"/html/body/div[1]/div/div[1]/div[6]/div[1]/div[5]/div/a"))
+            value = driver.find_element(By.XPATH,f"/html/body/div[1]/div/div[1]/div[6]/div[1]/div[5]/div/a[{lab_count}]").get_attribute("class")
+            if value == 'next lose':
+                print("[WebDriver]: 该关键词数据爬取完毕，切换关键词继续爬取")
+                continue
+        except:
+            print("[WebDriver]: 该关键词数据爬取完毕，切换关键词继续爬取")
+            continue
 
         # 点击下一页
         try:
             print("[WebDriver]: 点击下一页，并等待页面加载")
             lab_count = len(driver.find_elements(By.XPATH,"/html/body/div[1]/div/div[1]/div[6]/div[1]/div[5]/div/a"))
-            driver.find_element(By.XPATH,f"/html/body/div[1]/div/div[1]/div[6]/div[1]/div[5]/div/a[{lab_count}]").click()
+            driver.find_element(By.XPATH,f"/html/body/div[1]/div/div[1]/div[6]/div[1]/div[5]/div/a[{lab_count}]").click()                
             sleep(1)
         except:
-            print("[WebDriver]: 点击下一页失败，终止程序")
-            exit(0)
+            print("[WebDriver]: 该关键词数据爬取完毕，切换关键词继续爬取")
+            continue
 
 print("[WebDriver]: 退出浏览器")
 driver.quit()

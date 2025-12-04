@@ -14,8 +14,6 @@
 
 ## 环境要求
 
-**text**
-
 Python 3.8+
 
 火狐驱动 latest
@@ -24,8 +22,6 @@ Python 3.8+
 
 1. 克隆项目
 
-**bash**
-
 ```
 git clone https://github.com/LoveSunday7/government_policy_crawler.git
 cd government-policy-crawler
@@ -33,15 +29,11 @@ cd government-policy-crawler
 
 2. 安装依赖（最好使用python虚拟环境）
 
-**bash**
-
 ```
 pip install -r requirements.txt
 ```
 
 3. 运行爬虫（需要完成[安装火狐驱动](https://blog.csdn.net/yinshuilan/article/details/90713084)）
-
-**bash**
 
 ```
 python areaname.py
@@ -49,11 +41,9 @@ python areaname.py
 
 ## 项目结构
 
-**text**
-
 ```
 government-policy-crawler/
-├── utils/           # 爬虫工具模块
+├── utils/           # 爬虫工具模块（如果有新的类别，可以添加文件）
 ├── 农业分类目录/     # 数据存储目录
 ├── areaname.py      # 主程序
 ├── requirements.txt # 依赖列表
@@ -64,8 +54,6 @@ government-policy-crawler/
 
 爬取的政策数据包含以下字段：
 
-**json**
-
 ```
 {
     'title': '标题',
@@ -75,3 +63,7 @@ government-policy-crawler/
 }
 {附件}
 ```
+
+## 面临问题
+
+* [ ] 江西省九江市农业局网站链接到的网站页面结构差异很大，无法解析

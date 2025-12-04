@@ -2,5 +2,5 @@
 农业分类目录/
 testpython.py
 test/
-utils/__pycache__/
+utils/__pycache__/*
 index.html
