@@ -13,6 +13,40 @@ GOV_LINKS = {
     "上饶市人民政府-市农业农村局":"https://www.zgsr.gov.cn/nyj/bindex.shtml"
 }
 
+GOV_SHEN_LINKS= {
+    "北京市农业农村局":"http://nyncj.beijing.gov.cn/",
+    "天津市农业农村委员会（天津市乡村振兴局）":"http://nync.tj.gov.cn/",
+    "河北省农业农村厅":"http://nync.hebei.gov.cn/",
+    "山西省农业农村厅":"http://nynct.shanxi.gov.cn/",
+    "内蒙古自治区农牧厅":"http://nmt.nmg.gov.cn/",
+    "辽宁省农业农村厅":"https://nync.ln.gov.cn/",
+    "吉林省农业农村厅（吉林省乡村振兴局）":"http://agri.jl.gov.cn/",
+    "黑龙江省农业农村厅":"https://nynct.hlj.gov.cn/",
+    "上海市农业农村委员会":"https://nyncw.sh.gov.cn/",
+    "江苏省农业农村厅（江苏省乡村振兴局）":"http://nynct.jiangsu.gov.cn/",
+    "浙江省农业农村厅":"http://nynct.zj.gov.cn/",
+    "安徽省农业农村厅":"https://nync.ah.gov.cn/index.html",
+    "福建省农业农村厅":"https://nynct.fujian.gov.cn/",
+    "江西省农业农村厅":"https://nync.jiangxi.gov.cn/",
+    "山东省农业农村厅（山东省乡村振兴局）":"http://nync.shandong.gov.cn/",
+    "河南省农业农村厅":"https://nynct.henan.gov.cn/",
+    "湖北省农业农村厅":"https://nyt.hubei.gov.cn/",
+    "湖南省农业农村厅":"https://agri.hunan.gov.cn/",
+    "广东省农业农村厅":"https://dara.gd.gov.cn/",
+    "广西壮族自治区农业农村厅":"http://nynct.gxzf.gov.cn/",
+    "海南省农业农村厅":"https://agri.hainan.gov.cn/hnsnyt/index.html",
+    "重庆市农业农村委员会":"https://nyncw.cq.gov.cn/",
+    "四川省农业农村厅":"https://nynct.sc.gov.cn/",
+    "贵州省农业农村厅":"http://nynct.guizhou.gov.cn/",
+    "云南省农业农村厅":"https://nync.yn.gov.cn/",
+    "西藏自治区农业农村厅":"http://nynct.xizang.gov.cn/",
+    "陕西省农业农村厅":"http://nynct.shaanxi.gov.cn/",
+    "甘肃省农业农村厅":"https://nync.gansu.gov.cn/",
+    "青海省农业农村厅（青海省乡村振兴局）":"http://nynct.qinghai.gov.cn/",
+    "宁夏回族自治区农业农村厅":"http://nynct.nx.gov.cn/",
+    "新疆维吾尔自治区农业农村厅":"https://nynct.xinjiang.gov.cn/guestweb5/html/searchResult.html?column=%25E5%2585%25A8%25E9%2583%25A8&uc=1&searchWord=%25E5%2586%259C%25E4%25B8%259A&siteCode=6500000026",
+}
+
 KEY_MAP = {
     "农业生产核心":{
         "农业与种植":["种植","种植业","种粮","农作物","种业","良种","种质资源","育种创新"],
