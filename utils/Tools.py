@@ -72,7 +72,7 @@ class Information:
 
         print(f"[file]: 下载附件结束")
 
-def check_ok(driver:WebDriver,xpath:str):
+def check_ok(driver:WebDriver,xpath:str,time=1):
     print("[driver]: 等待页面加载",end="",flush=True)
     while True:
         try:
@@ -81,7 +81,7 @@ def check_ok(driver:WebDriver,xpath:str):
             print(f"\r[driver]: 页面加载完成，共有{count}条搜索结果")
             return int(count)
         except:
-            sleep(1)
+            sleep(time)
             print("\r[driver]: 等待页面加载",end="",flush=True)
 
 def search_keywords(SearchBox:WebElement):
