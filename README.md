@@ -62,7 +62,7 @@
 | 620000     | [甘肃省农业农村厅](https://nync.gansu.gov.cn/)                       |      |      |        |
 | 630000     | [青海省农业农村厅（青海省乡村振兴局）](http://nynct.qinghai.gov.cn/) |      |      |        |
 | 640000     | [宁夏回族自治区农业农村厅](http://nynct.nx.gov.cn/)                  |      |      |        |
-| 650000     | [新疆维吾尔自治区农业农村厅](http://nynct.xinjiang.gov.cn/)          |      |      |        |
+| 650000     | [新疆维吾尔自治区农业农村厅](http://nynct.xinjiang.gov.cn/)          | 完成 |      | 可用   |
 
 ## 面临问题
 
