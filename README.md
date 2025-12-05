@@ -19,11 +19,11 @@
 | 360100     | [南昌市农业农村局](https://nyj.nc.gov.cn/)                              |             |      |        |
 | 360200     | [景德镇市农业农村局]()                                                  |             |      |        |
 | 360300     | [萍乡市农业农村局](https://nyncj.pingxiang.gov.cn/)                     |             |      |        |
-| 360400     | [九江市农业农村局](https://nyncj.jiujiang.gov.cn/)                      |             |      |        |
+| 360400     | [九江市农业农村局](https://nyncj.jiujiang.gov.cn/)                      | 遇到问题    |      |        |
 | 360500     | [新余市农业农村局](https://nyj.xinyu.gov.cn/)                           | 正在工作... |      |        |
 | 360600     | [鹰潭市农业农村粮食局](http://nynclsj.yingtan.gov.cn/)                  |             |      |        |
 | 360700     | [赣州市农村农业网](https://ny.ganzhou.gov.cn/)                          |             |      |        |
-| 360800     | [吉安市农业农村局](http://agri.jian.gov.cn/)                            |             |      |        |
+| 360800     | [吉安市农业农村局](http://agri.jian.gov.cn/)                            | 遇到问题    |      |        |
 | 360900     | [宜春市农业农村局](http://nyncj.yichun.gov.cn/)                         | 完成        |      |  可用  |
 | 361000     | [抚州市农业农村局](http://nyj.jxfz.gov.cn/index.html)                   |             |      |        |
 | 361100     | [上饶市人民政府-市农业农村局](https://www.zgsr.gov.cn/nyj/bindex.shtml) |             |      |        |
