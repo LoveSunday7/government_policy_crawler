@@ -203,3 +203,100 @@ def parse_html(html_content):
         result['content'] = '\n\n'.join(paragraphs)
     
     return result
+
+def parse_article_html(html_content):
+    """
+    解析HTML页面，提取文章信息,解析新疆的内容
+    """
+    soup = BeautifulSoup(html_content, 'html.parser')
+    
+    # 1. 提取标题 - 从多个可能的位置
+    title = None
+    
+    # 首先尝试从<meta name="ArticleTitle">提取
+    article_title_meta = soup.find('meta', {'name': 'ArticleTitle'})
+    if article_title_meta and article_title_meta.get('content'):
+        title = article_title_meta['content']
+    else:
+        # 从<title>标签提取
+        title_tag = soup.find('title')
+        if title_tag:
+            # 去掉标题中的栏目信息
+            title = title_tag.text.split('-')[0].strip()
+        else:
+            # 从detail-title类提取
+            detail_title = soup.find('p', class_='detail-title')
+            if detail_title:
+                title = detail_title.text.strip()
+    
+    # 2. 提取发布日期 - 从多个可能的位置
+    pub_date = None
+    
+    # 首先尝试从<meta name="PubDate">提取
+    pub_date_meta = soup.find('meta', {'name': 'PubDate'})
+    if pub_date_meta and pub_date_meta.get('content'):
+        pub_date = pub_date_meta['content']
+    else:
+        # 从detail-meta-left中的发布时间提取
+        detail_meta_left = soup.find('div', class_='detail-meta-left')
+        if detail_meta_left:
+            spans = detail_meta_left.find_all('span')
+            for span in spans:
+                if '发布时间：' in span.text:
+                    pub_date = span.text.replace('发布时间：', '').strip()
+                    break
+    
+    # 3. 提取文章来源
+    content_source = None
+    
+    # 首先尝试从<meta name="ContentSource">提取
+    source_meta = soup.find('meta', {'name': 'ContentSource'})
+    if source_meta and source_meta.get('content'):
+        content_source = source_meta['content']
+    else:
+        # 从detail-meta-left中的信息来源提取
+        detail_meta_left = soup.find('div', class_='detail-meta-left')
+        if detail_meta_left:
+            spans = detail_meta_left.find_all('span')
+            for span in spans:
+                if '信息来源：' in span.text:
+                    content_source = span.text.replace('信息来源：', '').strip()
+                    break
+    
+    # 4. 提取正文内容
+    content = ''
+    detail_content = soup.find('div', class_='detail-content')
+    
+    if detail_content:
+        # 移除不需要的元素
+        for element in detail_content.find_all(['script', 'style', 'img', 'a', 'h4']):
+            element.decompose()
+        
+        # 获取所有文本内容
+        paragraphs = detail_content.find_all('p')
+        if paragraphs:
+            for p in paragraphs:
+                text = p.get_text(strip=True)
+                if text:  # 跳过空段落
+                    # 清理文本中的多余空白和特殊字符
+                    text = re.sub(r'\s+', ' ', text)
+                    content += text + '\n'
+        else:
+            # 如果没有p标签，直接获取文本
+            content = detail_content.get_text(strip=True)
+            content = re.sub(r'\s+', ' ', content)
+    
+    # 清理内容中的特殊HTML字符
+    if content:
+        content = content.replace('\u00a0', ' ')  # 替换&nbsp;
+        content = content.replace('\u3000', ' ')  # 替换中文空格
+    
+    # 构建结果字典
+    result = {
+        'title': title or '',
+        'pub_date': pub_date or '',
+        'content_source': content_source or '',
+        'content': content.strip()
+    }
+    
+    return result
