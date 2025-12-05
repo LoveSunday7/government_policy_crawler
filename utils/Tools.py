@@ -40,11 +40,11 @@ class Information:
                 f.write(f"正文：\n{self.content}\n")
                 f.write("="*20+'\n')
                 f.write(f"附件：\n")
-                f.write("="*20+'\n')
                 count = 1
                 for key in self.attachment_links:
-                    f.write(f"{count}:{self.attachment_links[key]}\n")
+                    f.write(f"{count}:{key}\n")
                     count += 1
+                f.write("="*20+'\n')
                 f.write("\n")
         except Exception as e:
             print(f"[file]: 写入文件失败：{self.file_path}，原因：{e}")
