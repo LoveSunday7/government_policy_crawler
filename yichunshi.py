@@ -1,10 +1,45 @@
 # 宜春地区的搜索全是静态页面只需要使用request库
 import requests
 from utils.settings import *
+from utils.Tools import*
+
+# from utils.InitSpider import MakeDir
+
 
 import re
 from bs4 import BeautifulSoup
 from typing import List, Dict, Any
+from math import ceil
+
+# MakeDir()
+def parse_one(html_text: str):
+    """
+    解析单个页面
+    :param html_text: 页面源码
+    :param file_name: 文件名（仅用于日志/标识）
+    :return: dict
+    """
+    soup = BeautifulSoup(html_text, "html.parser")
+
+    # 1. 正文：取 class 为 article-content-body 的 div 下纯文本
+    content_div = soup.select_one("div.article-content-body")
+    content = content_div.get_text(strip=True, separator="\n") if content_div else ""
+
+    # 2. 附件：在 class 为 fj-a 的 div 里找 <a>
+    attachments = []
+    fj_div = soup.select_one("div.fj-a")
+    if fj_div:
+        for a in fj_div.find_all("a", href=True):
+            # href 可能是相对路径，这里保留原始值，如有需要可自行拼绝对路径
+            attachments.append({
+                "name": a.get_text(strip=True),
+                "url": a["href"]
+            })
+
+    return {
+        "content": content,
+        "attachments": attachments
+    }
 
 def parse_yichun_search_page(html_content: str) -> Dict[str, Any]:
     """
@@ -83,10 +118,69 @@ def parse_yichun_search_page(html_content: str) -> Dict[str, Any]:
     
     return result
 
-for key1 in KEY_MAP:
-        for key2 in KEY_MAP[key1]:
-            for key3 in KEY_MAP[key1][key2]:
-                response = requests.get(GOV_LINKS['宜春市农业农村局'].format(key3,0))
-                with open("index.html","wb") as file:
-                    file.write(response.content)
-                     
+num = 0
+
+if __name__ == '__main__':
+    for key1 in KEY_MAP:
+            for key2 in KEY_MAP[key1]:
+                for key3 in KEY_MAP[key1][key2]:
+                    page = 0
+                    search_count = 0
+                    while True:
+                        try:
+                            print("[robort]: 正在下载和解析页面")
+                            response = requests.get(GOV_LINKS['宜春市农业农村局'].format(key3,page))
+                            print("[robort]: 下载页面成功")
+                            response.encoding = response.apparent_encoding
+                            parsed_data = parse_yichun_search_page(response.content)
+                            print("[robort]: 解析页面成功")
+                        except Exception as e:
+                            print(f"[error]: 页面解析失败，退出程序，错误原因：\n{e}")
+                            exit(0)
+                        
+                        print("[robot]: 正在获取主页面信息")
+                        search_count = parsed_data['total_results']
+                        for card in parsed_data['news_list']:
+                            title = card["title"]
+                            date = card["date"]
+                            publisher = card["source"]
+                            link = card["detail_url"]
+                            
+                            print("[robot]: 下载详细页面",end="",flush=True)
+                            detail_html = requests.get(link)
+                            detail_html.encoding = detail_html.apparent_encoding
+                            detail_html = detail_html.content
+                            print("[robot]: 下载详细页面-----[√]")
+                            
+                            print("[robot]: 解析详情页面",end="",flush=True)
+                            detail = parse_one(detail_html)
+                            print("[robot]: 解析详情页面-----[√]")
+
+                            links = {}
+                            block= link.split("/")
+                            for detail_attachment in detail["attachments"]:
+                                if 'http' not in detail_attachment["url"]:
+                                    url = f"{block[0]}//{block[2]}/{block[3]}/{block[4]}/{block[5]}/"+detail_attachment["url"]
+                                links[detail_attachment["name"]] = url
+
+                            print(links)
+
+                            info = Information(
+                                title=title,
+                                publisher=publisher,
+                                time=date,
+                                content=detail['content'],
+                                file_class=f'./农业分类目录/{key1}/{key2}/{key3}',
+                                attachment_links=links
+                            )
+                            
+                            if len(links) != 0:
+                                info.download_attachment()
+                            
+                            info.write_to_file()
+
+                        page += 1
+                        if page == ceil(search_count/10):
+                            break           
+
+                        
