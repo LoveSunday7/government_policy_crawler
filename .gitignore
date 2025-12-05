@@ -4,3 +4,4 @@ testpython.py
 test*
 utils/__pycache__/*
 index.html
+parsed_results.json
