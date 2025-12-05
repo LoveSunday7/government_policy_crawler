@@ -8,7 +8,7 @@ GOV_LINKS = {
     "鹰潭市农业农村粮食局":"http://nynclsj.yingtan.gov.cn/",
     "赣州市农村农业网":"https://ny.ganzhou.gov.cn/",
     "吉安市农业农村局":"http://agri.jian.gov.cn/",
-    "宜春市农业农村局":"http://nyncj.yichun.gov.cn/",
+    "宜春市农业农村局":"https://zs.kaipuyun.cn/search4/s?siteCode=3609000060&searchWord={}&pageNum={}",
     "抚州市农业农村局":"http://nyj.jxfz.gov.cn/index.html",
     "上饶市人民政府-市农业农村局":"https://www.zgsr.gov.cn/nyj/bindex.shtml"
 }
