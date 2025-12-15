@@ -10,7 +10,7 @@ GOV_LINKS = {
     "吉安市农业农村局":"http://agri.jian.gov.cn/",
     "宜春市农业农村局":"https://zs.kaipuyun.cn/search4/s?siteCode=3609000060&searchWord={}&pageNum={}",
     "抚州市农业农村局":"http://nyj.jxfz.gov.cn/index.html",
-    "上饶市人民政府-市农业农村局":"https://www.zgsr.gov.cn/nyj/bindex.shtml"
+    "上饶市人民政府-市农业农村局":"https://www.zgsr.gov.cn/search4/s?uc=1&siteCode=3611000001&column=%E5%85%A8%E9%83%A8&searchWord=%E5%86%9C%E4%B8%9A"
 }
 
 GOV_SHEN_LINKS= {
